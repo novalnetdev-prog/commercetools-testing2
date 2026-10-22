@@ -92,7 +92,7 @@ export function multibancoReferenceDetails(transaction: Record<string, any>, loc
   const entity = String(transaction.service_supplier_id ?? "").trim();
   return [
     t(locale, "payment.multibancoInstructions", {
-      amount: formatNovalnetAmount(transaction.amount, String(transaction.currency ?? "EUR"), locale),
+      amount: formatNovalnetAmount(transaction.amount, String(transaction.currency ?? ""), locale),
     }),
     t(locale, "payment.multibancoPartnerReference", { reference }),
     entity ? t(locale, "payment.multibancoEntity", { entity }) : "",
