@@ -3917,7 +3917,7 @@ private buildTransactionComments(
         eventTID: parentTID,
         formattedAmount: formatNovalnetAmount(
           webhook.transaction?.refund?.amount ?? 0,
-          String(webhook.transaction?.refund?.currency ?? webhook.transaction?.currency ?? "EUR"),
+          String(webhook.transaction?.refund?.currency ?? webhook.transaction?.currency ?? ""),
           locale,
         ),
       }) + (webhook.transaction?.refund?.tid
@@ -3939,7 +3939,7 @@ private buildTransactionComments(
 	  return t(locale, "callback.creditComment", {
 	    parentTID,
 	    formattedAmount: formatNovalnetAmount(
-	      webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? "EUR"), locale,
+	      webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? ""), locale,
 	    ),
 	    date,
 	    time,
@@ -3953,7 +3953,7 @@ private buildTransactionComments(
       ).toUpperCase();
 
       const formattedAmount = formatNovalnetAmount(
-        webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? "EUR"), locale,
+        webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? ""), locale,
       );
 
       switch (updateType) {
@@ -3995,7 +3995,7 @@ private buildTransactionComments(
       return t(locale, "callback.chargebackComment", {
       parentTID,
       formattedAmount: formatNovalnetAmount(
-        webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? "EUR"), locale,
+        webhook.transaction?.amount ?? 0, String(webhook.transaction?.currency ?? ""), locale,
       ),
       date,
       time,
