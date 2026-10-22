@@ -426,7 +426,7 @@ export class NovalnetPaymentService extends AbstractPaymentService {
       const status = String(responseData?.transaction?.status ?? "").toUpperCase();
       const { state, transactionType } = this.getTransactionStatus(status);
       const statusCode = responseData?.transaction?.status_code ?? "";
-      const locale = lang === "en" ? "en" : "de";
+      const locale = lang === "de" ? "de" : "en";
       const transactionComments = [
         t(locale, "payment.transactionId", { tid }),
         t(locale, "payment.paymentType", {
