@@ -19,7 +19,7 @@ export function getNovalnetSystemInfo(storefrontUrl: string, version: string) {
   return {
     system_name: "commercetools",
     system_version: "NN-" + version,
-    system_ip: address?.address ?? "127.0.0.1",
+    system_ip: address?.address ?? "",
     ...(origin && { system_url: origin }),
   };
 }
@@ -52,7 +52,7 @@ export function mergeInitialPaymentComments(existing: string, initial: string): 
 }
 
 export function bankTransferReference(transaction: Record<string, any>, locale: SupportedLocale): string {
-  const currency = String(transaction.currency ?? "EUR");
+  const currency = String(transaction.currency ?? "");
   const dueDate = /^\d{4}-\d{2}-\d{2}$/.test(String(transaction.due_date ?? ""))
     ? new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-GB", {
         year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
