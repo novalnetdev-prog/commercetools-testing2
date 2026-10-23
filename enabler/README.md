@@ -2,8 +2,6 @@
 
 The Enabler module provides the frontend integration between commercetools Checkout and Novalnet's secure payment components.
 
-Novalnet's JavaScript libraries securely collect payment information such as card details without exposing sensitive data to the merchant application, helping reduce PCI DSS scope.
-
 The Enabler acts as the frontend wrapper used by commercetools Checkout to load Novalnet payment methods dynamically based on merchant configuration.
 
 ## Features
