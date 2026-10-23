@@ -233,7 +233,6 @@ Every payment method supports its own configuration.
 | `*_PAYMENT_ACTION` | Payment or Authorization |
 | `*_PAYMENT_ACTION_MINIMUM_AMOUNT` | Minimum Authorization Amount |
 | `*_DUE_DATE` | Due date for Invoice/SEPA |
-| `*_ALLOW_B2B_CUSTOMERS` | Guaranteed payment B2B option |
 | `*_FORCE_NON_GUARANTEED_PAYMENT` | Guaranteed payment fallback |
 | `NOVALNET_CREDITCARD_ENFORCE_3D_SECURE_PAYMENT_OUTSIDE_EU` | Force 3D Secure |
 | `NOVALNET_CREDITCARD_DISPLAY_INLINE_CREDITCARD_FORM` | Inline Card Form |
