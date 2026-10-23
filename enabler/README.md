@@ -48,9 +48,12 @@ The Enabler dynamically initializes payment methods supported by the merchant co
 - Trustly
 - WeChat Pay
 - Online Bank Transfer
-- PIX, Boleto, Bizum, BANCOMAT Pay, Kakao Pay, Naver Pay
-- Other supported Novalnet redirect methods
-
+- PIX
+- Boleto
+- Bizum
+- BANCOMAT Pay
+-  Kakao Pay
+-   Naver Pay
 ---
 
 ## Frontend Flow
