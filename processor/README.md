@@ -145,10 +145,10 @@ Supported methods include:
 - Online Bank Transfer
 - PIX
 - Boleto
--  Bizum
--   BANCOMAT Pay
--    Kakao Pay
--     Naver Pay
+- Bizum
+- BANCOMAT Pay
+- Kakao Pay
+- Naver Pay
 
 Flow:
 
