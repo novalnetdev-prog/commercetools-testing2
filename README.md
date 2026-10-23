@@ -48,7 +48,6 @@ The connector is built using the **commercetools Connect Payment SDK** and follo
 | Kakao Pay                    | Redirect          |
 | Naver Pay                    | Redirect          |
 
-Each additional method has its own enabler component. Its Novalnet request code is respectively `PIX`, `BOLETO`, `BIZUM`, `BANCOMATPAY`, `KAKAOPAY`, and `NAVERPAY`. Checkout display details for methods treated as custom must be configured in Merchant Center; the localized Payment record name does not configure the Checkout integration label.
 
 ## Project Structure
 
@@ -90,8 +89,6 @@ The **Processor** is the backend middleware responsible for:
 * Processing redirect callbacks.
 * Handling webhooks.
 * Updating commercetools Payments.
-* Synchronizing Orders.
-* Maintaining transaction history.
 
 ## Payment Flow
 
@@ -109,10 +106,6 @@ flowchart TD
     callback --> processor
     processor --> orders
 ```
-
-Checkout creates the Order. The initial `PAYMENT` webhook reconciles its financial state after the Order exists. The return route records redirect success or failure; capture, cancel, credit, and refund events update the relevant transactions. Payment Intent requests call the processor directly for merchant initiated capture, cancel, and refund operations. Order fulfillment state remains with the merchant's order process.
-
-For a gateway decline, the enabler displays the Novalnet reason in its own accessible alert and still invokes Checkout's `onError` callback. Checkout can also show its generic error message. A failed redirect returns to `/checkout` with a short lived `novalnetPaymentError` URL parameter; the enabler displays and removes that parameter when it initializes.
 
 ### Direct Payment
 
@@ -153,8 +146,6 @@ Customer completes payment
    │
 Success / Failure Route
    │
-Transaction Details API
-   │
 Update Payment
    │
 Sync Order & Payment States
@@ -185,17 +176,6 @@ Supported methods:
 * Guaranteed Invoice
 * Guaranteed Direct Debit SEPA
 
-Before processing a guaranteed payment, the connector validates:
-
-* Billing and shipping addresses match.
-* Supported European country.
-* EUR currency.
-* Minimum amount (€99.90).
-* Merchant guarantee configuration.
-* B2B eligibility (where applicable).
-
-If **Force Non-Guaranteed Payment** is enabled, guaranteed payments automatically fall back to their standard payment methods when guarantee conditions are not met.
-
 ## Webhook Processing
 
 The connector processes the following Novalnet webhook events.
@@ -210,25 +190,6 @@ The connector processes the following Novalnet webhook events.
 | TRANSACTION_UPDATE  | Amount, Due Date and Status updates |
 | CHARGEBACK          | Chargeback                          |
 
-
-## Transaction History
-
-The connector maintains transaction history across:
-
-* Payment Transaction Custom Fields
-* Order Custom Fields
-* Custom Objects (`nn-private-data`)
-
-This preserves:
-
-* Transaction IDs
-* Payment Type
-* Capture history
-* Refund history
-* Credit history
-* Chargeback history
-* Transaction updates
-* Test Mode information
 
 ## Configuration
 
