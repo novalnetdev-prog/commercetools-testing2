@@ -86,5 +86,3 @@ This includes:
 - test mode
 - 3D Secure settings
 - session information
-
-No sensitive merchant credentials are exposed in the browser.
