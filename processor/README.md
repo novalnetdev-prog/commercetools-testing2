@@ -14,8 +14,6 @@ The processor is responsible for creating payments, handling direct and redirect
 - Webhook handling
 - Localized transaction comments (English and German)
 
----
-
 
 ---
 
