@@ -15,38 +15,6 @@ The Enabler acts as the frontend wrapper used by commercetools Checkout to load 
 
 ---
 
-## Getting Started
-
-Run the following commands inside the `enabler` directory.
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Build
-
-```bash
-npm run build
-```
-
-The production assets are generated inside the `public` directory.
-
-### Start development server
-
-```bash
-npm run dev
-```
-
-The development site is available at:
-
-```
-http://127.0.0.1:3000/
-```
-
----
-
 ## Responsibilities
 
 The Enabler is responsible for:
