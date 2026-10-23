@@ -212,8 +212,8 @@ Required commercetools settings include:
 
 Required Novalnet settings include:
 
-* Public Key
-* Private Key
+* Product Activation Key
+* Payment Access Key
 * Tariff ID
 * Client Key
 
