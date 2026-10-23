@@ -1866,7 +1866,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const order = await this.getOrderByPaymentId(paymentId);
     
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale: SupportedLocale = lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = lang === "de" ? "de" : "en";
     
     const transactionComments =
       this.buildTransactionComments(
@@ -2039,7 +2039,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const order = await this.getOrderByPaymentId(paymentId);
     
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale: SupportedLocale = lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = lang === "de" ? "de" : "en";
     
     const transactionComments =
       this.buildTransactionComments(
@@ -2144,7 +2144,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const order = await this.getOrderByPaymentId(paymentId);
     
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale: SupportedLocale = lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = lang === "de" ? "de" : "en";
     
     const transactionComments =
       this.buildTransactionComments(
@@ -2235,7 +2235,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     }
 
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale: SupportedLocale = lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = lang === "de" ? "de" : "en";
     const comment = this.buildTransactionComments(webhook, locale);
 
     if (totalRefunded > previousRefunded) {
@@ -2438,7 +2438,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const order = await this.getOrderByPaymentId(paymentId);
     
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale: SupportedLocale = lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = lang === "de" ? "de" : "en";
     
     const transactionComments =
       this.buildTransactionComments(
@@ -2533,7 +2533,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const paymentId = parsedData?.["ctpayment-id"];
     const pspReference = parsedData?.pspReference;
     const lang = parsedData?.lang as SupportedLocale;
-    const locale = lang === "en" ? "en" : "de";
+    const locale = lang === "de" ? "de" : "en";
 
     if (!paymentId || !pspReference) {
       throw new Error("Missing ctpayment-id or pspReference");
@@ -2624,7 +2624,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     }
 
     const lang = webhook.custom?.lang as SupportedLocale;
-    const locale = lang === "en" ? "en" : "de";
+    const locale = lang === "de" ? "de" : "en";
 
     const eventTID = String(webhook.event?.tid ?? "");
     const parentTID = String(
@@ -2839,7 +2839,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
     const paymentId = webhook.custom?.["ctpayment-id"] ?? webhook.custom?.inputval1;
     const pspReference = webhook.custom?.pspReference ?? webhook.custom?.inputval2;
     if (!paymentId || !pspReference) throw new Error("Missing payment reference");
-    const locale: SupportedLocale = webhook.custom?.lang === "en" ? "en" : "de";
+    const locale: SupportedLocale = webhook.custom?.lang === "de" ? "de" : "en";
     const comment = this.buildTransactionComments(webhook, locale);
     await this.updatePaymentTransaction({
       paymentId, pspReference, transactionComments: comment,
@@ -2866,7 +2866,7 @@ private async getModificationFlags(paymentId: string, eventType: string, status?
 	  }
 	
 	  const lang = webhook.custom?.lang as SupportedLocale;
-	  const locale = lang === "en" ? "en" : "de";
+	  const locale = lang === "de" ? "de" : "en";
 	
 	  const transactionComments = this.buildTransactionComments(
 	    webhook,
