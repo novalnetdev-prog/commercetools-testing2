@@ -4,8 +4,6 @@ This module provides a backend service based on [commercetools Connect](https://
 
 The processor is responsible for creating payments, handling direct and redirect payment flows, processing webhooks, synchronizing commercetools Payments and Orders, and maintaining transaction history throughout the payment lifecycle.
 
-The module also provides post-deployment and pre-undeployment scripts that can perform connector-specific initialization and cleanup actions.
-
 ## Features
 
 - Direct payment processing
@@ -18,65 +16,6 @@ The module also provides post-deployment and pre-undeployment scripts that can p
 
 ---
 
-## Getting Started
-
-Run the following commands inside the `processor` directory.
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Build the application
-
-```bash
-npm run build
-```
-
-The compiled output is generated inside the `dist` folder.
-
-### Run tests
-
-```bash
-npm test
-```
-
-### Start the application
-
-```bash
-npm run start
-```
-
-### Run development server
-
-```bash
-npm run dev
-```
-
-### Fix lint issues
-
-```bash
-npm run lint:fix
-```
-
-### Verify lint
-
-```bash
-npm run lint
-```
-
-### Run post-deploy
-
-```bash
-npm run connector:post-deploy
-```
-
-### Run pre-undeploy
-
-```bash
-npm run connector:pre-undeploy
-```
 
 ---
 
@@ -90,7 +29,6 @@ processor/src/config/config.ts
 
 using environment variables supplied through:
 
-- `.env`
 - `connect.yaml`
 - commercetools Connect deployment configuration
 
@@ -184,6 +122,7 @@ Supported methods include:
 - Direct Debit SEPA
 - ACH
 - Invoice
+- Multibanco
 - Guaranteed payments
 
 Flow:
@@ -203,11 +142,15 @@ Supported methods include:
 - Przelewy24
 - EPS
 - Bancontact
-- Multibanco
 - Trustly
 - WeChat Pay
 - Online Bank Transfer
-- PIX, Boleto, Bizum, BANCOMAT Pay, Kakao Pay, Naver Pay
+- PIX
+- Boleto
+-  Bizum
+-   BANCOMAT Pay
+-    Kakao Pay
+-     Naver Pay
 
 Flow:
 
