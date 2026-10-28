@@ -53,10 +53,20 @@ export function mergeInitialPaymentComments(existing: string, initial: string): 
 
 export function bankTransferReference(transaction: Record<string, any>, locale: SupportedLocale): string {
   const currency = String(transaction.currency ?? "");
-  const dueDate = /^\d{4}-\d{2}-\d{2}$/.test(String(transaction.due_date ?? ""))
-    ? new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-GB", {
-        year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
-      }).format(new Date(`${transaction.due_date}T00:00:00Z`))
+  const rawDueDate = String(transaction.due_date ?? "").trim();
+  const yearFirst = rawDueDate.match(
+    /^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})(?:[T\s].*)?$/,
+  );
+  const dayFirst = rawDueDate.match(
+    /^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/,
+  );
+  const parts = yearFirst
+    ? [yearFirst[3], yearFirst[2], yearFirst[1]]
+    : dayFirst
+      ? [dayFirst[1], dayFirst[2], dayFirst[3]]
+      : null;
+  const dueDate = parts
+    ? parts.map((part) => part.padStart(2, "0")).join("-")
     : "";
   return t(locale, "payment.referenceText", {
     amount: formatNovalnetAmount(transaction.amount, currency, locale),
