@@ -208,7 +208,7 @@ export class Ach extends BaseComponent {
         );
 
         this.onError(
-          this.getLanguage() === 'de' ? 'Bitte füllen Sie alle Pflichtfelder aus.' : 'Please fill all required fields.'
+          this.getLanguage() === 'de' ? 'Ihre Kontodaten sind ungültig' : 'Your account details are invalid'
         );
 
         return;
